@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+
+  <meta charset="UTF-8">
+  
+  <link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
+
+  <meta name="apple-mobile-web-app-title" content="CodePen">
+
+  <link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+
+  <link rel="mask-icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-b4b4269c16397ad2f0f7a01bcdf513a1994f4c94b8af2f191c09eb0d601762b1.svg" color="#111" />
+
+
+  
+  <title>Go0gle</title>
+  
+  
+  
+  
+<style>
+/* General */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+  min-height: 100%;
+  min-height: 100vh;
+}
+
+p {
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  line-height: 1.5em;
+}
+
+h2 {
+  font-weight: normal;
+  font-size: 20px;
+}
+
+a {
+  color: #1a0dab;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #609;
+}
+
+/* Navigation Bar */
+
+nav {
+  display: flex;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+}
+
+li {
+  display: inline;
+}
+
+.logo {
+  padding-left: 10px;
+  width: 92px;
+}
+
+.navbar {
+  align-items: center;
+  width: 100%;
+  padding-top: 15px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.navbar li a {
+  color: black;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.navbar ul {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  overflow: hidden;
+  margin: 0;
+  font-size: 13px;
+  position: fixed;
+  top: 30px;
+  right: 30px;
+}
+
+.navbar2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 175px;
+  padding-right: 200px;
+  padding-bottom: 10px;
+  min-width: 640px;
+  max-width: 640px;
+}
+
+.navbar2 li {
+  color: #70757a;
+  padding-right: 13px;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.bottom-border {
+  width: 100%;
+  border-bottom-style: solid;
+  border-bottom-width: 0.5px;
+  border-bottom-color: #e5e5e5;
+}
+
+.nav-links {
+  float: right;
+}
+
+.nav-item {
+  display: inline-block;
+  align-items: center;
+}
+
+#profile_pic {
+  border-radius: 50%;
+}
+
+#squares {
+  width: 25px;
+  height: 25px;
+}
+
+.form {
+  text-align: center;
+  padding: 10px;
+}
+
+.searchbar {
+  font-size: 16px;
+  border-radius: 20px;
+  border-style: solid;
+  border-color: #e5e5e5;
+  border-width: 0.5px;
+  padding: 12px;
+  width: 650px;
+  margin-left: 40px;
+  margin-bottom: 10px;
+  /*make this not float in center*/
+}
+
+.searchbar input {
+}
+
+/* Search Results */
+
+#results-number {
+  color: #70757a;
+  padding-top: 10px;
+}
+
+#main {
+  width: 650px;
+  padding-left: 175px;
+}
+
+#feedback {
+  color: #70757a;
+  text-align: right;
+  padding-right: 10px;
+}
+
+a {
+  font-size: 14px;
+}
+
+.search-result {
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.peo-al-se-for {
+  padding: 10px;
+  padding-left: 12px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  overflow: auto;
+  height: 100%;
+  border-style: solid;
+  border-width: 0.5px;
+  border-color: #e5e5e5;
+  border-radius: 5px;
+}
+
+.peo-al-se-for p {
+  color: #70757a;
+}
+
+.peo-als-se-for-container1 {
+  float: left;
+  width: 30%;
+}
+
+.peo-als-se-for-container2 {
+  width: 40%;
+  float: left;
+  margin-left: 30px;
+}
+
+.peo-als-se-for-items {
+  margin-right: 16px;
+  margin-bottom: 0;
+  line-height: 1.2;
+  line-height: 24px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.peo-als-ask {
+  margin-top: 10px;
+  border-style: solid;
+  border-width: 0.5px;
+  border-color: #e5e5e5;
+  border-radius: 5px;
+}
+
+.peo-als-ask p {
+  padding: 10px;
+  padding-left: 14px;
+  font-size: 16px;
+  border-top-color: #e5e5e5;
+  border-top-style: solid;
+  border-top-width: 0.5px;
+}
+
+.peo-als-ask h2 {
+  padding: 10px;
+  padding: 14px;
+}
+
+.related-search {
+  padding-bottom: 10px;
+  margin-top: 10px;
+  border-style: solid;
+  border-width: 0.5px;
+  border-color: #e5e5e5;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.related-search p {
+  padding-bottom: 0;
+  padding-top: 10px;
+  padding-left: 10px;
+  font-size: 13px;
+  /*border-top-color: #e5e5e5;
+    border-top-style: solid;
+    border-top-width: .5px;*/
+  color: #70757a;
+}
+
+.related-search h2 {
+  padding-bottom: 10px;
+  padding-left: 10px;
+}
+
+.related-search a {
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 20px;
+  float: left;
+  width: 77px;
+}
+
+#related-search-image {
+  width: 77px;
+}
+
+.searches-related-to {
+  padding: 10px;
+  overflow: auto;
+  width: 900px;
+  margin-bottom: 20px;
+}
+
+.searches-related-to h2 {
+  padding-bottom: 20px;
+}
+
+.searches-related-to a {
+  line-height: 2em;
+  text-decoration: none;
+}
+
+/* Gooooooogle */
+
+/* Footer */
+
+#footer-bar {
+  background: rgb(242, 242, 242);
+  border-top: 0.2px solid;
+  border-color: #e4e4e4;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+#footer-bar2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border-top: 0.2px solid;
+  border-bottom: 0.2px solid;
+  border-color: #e4e4e4;
+}
+
+footer {
+  display: flex;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+  align-items: center;
+  padding: 0;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+footer li a {
+  color: grey;
+  padding: 20px;
+  padding-right: 10px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+footer ul {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  overflow: hidden;
+  margin: 0;
+  padding: 10px;
+  padding-left: 150px;
+}
+</style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+  <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+
+</head>
+
+<body translate="no" >
+  <!--Things that need help:
+- How to fix the profile pic and google apps in the right corner without it moving with the viewport
+- Icons in search bar and navigation bar
+-->
+
+<body>
+  <header>
+
+    <!--Search and profile bar-->
+    <nav class="navbar">
+      <img class="logo" src="https://i.ibb.co/kHfG1bJ/googlelogo-color.png" alt="Google Logo">
+      <div class="form">
+        <form method="get">
+          <input class="searchbar" value="dev0ted" type="search" name="search" />
+        </form>
+      </div>
+      <ul class="nav-links">
+        <li class="nav-item"><a href="#"><img id="squares" src="https://i.ibb.co/kgCgY8c/apps-icon.png"></a></li>
+        <li class="nav-item"><a href="#"><img id="profile_pic" src="https://lh3.googleusercontent.com/-3PZ1OYjMY8A/AAAAAAAAAAI/AAAAAAAAAAA/AAKWJJOgZjh2aMIeORl-UtVAiRK_3U361w.CMID/s32-c/photo.jpg" alt-text="profile pic"></a></li>
+      </ul>
+    </nav>
+  </header>
+  <header class="bottom-border">
+    <!--Types of searches bar-->
+    <nav class="navbar2">
+      <ul>
+        <li>All</li>
+        <li>News</li>
+        <li>Images</li>
+        <li>Videos</li>
+        <li>Shopping</li>
+        <li>More</li>
+      </ul>
+      <ul>
+        <li class="nav-item"><a href="#"></a>Settings</li>
+        <li class="nav-item"><a href="#"></a>Tools</li>
+      </ul>
+    </nav>
+  </header>
+
+  <!--Results-->
+  <div id="main">
+    <div id="x-results">
+      <p id="results-number">About 1 results (0,43 seconds)</p>
+    </div>
+
+    <!--Template Entry-->
+    <div class="search-result">
+      <p>hmlndr.vercel.app > dev0ted > ctf</p>
+      <!--dropdown for Cached/Similar-->
+      <a href="">
+        <a href="https://hmlndr.vercel.app/"><h2>dev0ted CTF - Head Bounty</h2></a>
+      </a>
+      <p>
+        Unleash your creativity and show us what you can do! We are looking for the brave ones to join our head bounty challenge. We are looking for the names and clues around 6 people. Help me out and earn great rewards.        
+      </p>
+      <a href="https://hmlndr.vercel.app/">hmlndr.vercel.app</a> 
+    </div>
+
+    <!--People also search for box-->
+    <div class="peo-al-se-for">
+      <p><strong>People also search for</strong></p>
+      <div class="peo-als-se-for-container1">
+        <a class="peo-als-se-for-items" href="#">Securinets</a><br>
+        <a class="peo-als-se-for-items" href="#">National Cybersecurity Congres March 19th, 2023</a><br>
+        <a class="peo-als-se-for-items" href="#">adm</a><br>
+      </div>
+      <div class="peo-als-se-for-container2">
+        <a class="peo-als-se-for-items" href="#">Niemand</a><br>
+        <a class="peo-als-se-for-items" href="#">Fares</a><br>
+        <a class="peo-als-se-for-items" href="#">Samer</a>
+      </div>
+    </div>
+
+    <!--People also ask box template-->
+    <div class="peo-als-ask">
+      <h2>People also ask</h2>
+      <p>What is a CTF?</p>
+      <p>How do you play CTFs?</p>
+      <p>How do you make a CTF challenge?</p>
+      <p>What is the best cybersecurity competition?</p>
+    </div>
+    <p id="feedback"><i>Feedback</i></p>
+
+    <!--Related search template-->
+    <div class="related-search">
+      <p>Related search</p>
+      <h2>Best Capture The Flag events</h2>
+      <a href="#"><img id="related-search-image" src="https://i.ibb.co/FJcdtpw/zork.png"><br>Securinets Quals CTF 2023</a>
+      <a href="#"><img id="related-search-image" src="https://i.ibb.co/DwMKq0d/hitchhikers.jpg"><br>NCSC CTF, March 19th, 20th, and 21st</a>
+      <a href="#"><img id="related-search-image" src="https://i.ibb.co/wBRt3dd/dreamhold.jpg"><br>Nahamsec</a>
+      <a href="#"><img id="related-search-image" src="https://i.ibb.co/dD1N7Lk/spiderweb.jpg"><br>CSAW</a>
+      <a href="#"><img id="related-search-image" src="https://i.ibb.co/7ynwrks/planetfell.jpg"><br>Arab Cybersecurity Wargames</a>
+      <a href="#"><img id="related-search-image" src="https://i.ibb.co/cwsshK8/mindvoyager.jpg"><br>CTFTime</a>
+    </div>
+    <p id="feedback"><i>Feedback</i></p>
+
+    <!--Searches related to ____ template-->
+    <div class="searches-related-to">
+      <h2>Searches related to Cybersecurity</h2>
+      <div class="peo-als-se-for-container1">
+        <a class="peo-als-se-for-items" href="#">Cyberchef</a><br>
+        <a class="peo-als-se-for-items" href="#">Cyberdefenders</a><br>
+        <a class="peo-als-se-for-items" href="#">dcode</a><br>
+        <a class="peo-als-se-for-items" href="#">Cryptohack</a>
+      </div>
+      <div class="peo-als-se-for-container2">
+        <a class="peo-als-se-for-items" href="#">Rootme</a><br>
+        <a class="peo-als-se-for-items" href="#">Try Hack Me</a><br>
+        <a class="peo-als-se-for-items" href="#">John Hammond</a><br>
+        <a class="peo-als-se-for-items" href="#">Cryptocat</a>
+      </div>
+    </div>
+  </div>
+
+  <!--Gooooooogle-->
+  <div>
+
+  </div>
+
+  <!--Footer bars-->
+  <div id="footer-bar">
+    <footer>
+      <ul class="nav-links">
+        <li class="nav-item"><a>Northern Ireland</a></li>
+        <!--vertical rule-->
+        <li>
+          <!--DOT--> <strong>Belfast</strong> - From your places (Home) - Use your precise location - Learn more </li>
+      </ul>
+    </footer>
+    <footer id="footer-bar2">
+      <ul class="nav-links">
+        <li class="nav-item"><a href="#">Help</a></li>
+        <li class="nav-item"><a href="#">Send feedback</a></li>
+        <li class="nav-item"><a href="#">Privacy</a></li>
+        <li class="nav-item"><a href="#">Terms</a></li>
+      </ul>
+    </footer>
+  </div>
+</body>
+  
+  
+  
+  
+
+</body>
+
+</html>
+ 
